@@ -9,6 +9,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 list_lower_right = ["a1", "a3", "a5", "a7"]
+list_lower_right2 = ["a1", "a3", "a5", "a7", "no place"]
 no_place = "no place"
 list_place = []
 def read_pdf():
@@ -35,6 +36,16 @@ def connect_db(table):
 def save_book_place(table, id_book, name_book, amount, pack_divided_amout):
     list_place.append([table, id_book, name_book, amount, pack_divided_amout])
 
+def sort_list(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if list_lower_right2.index(arr[j][0]) > list_lower_right2.index(arr[j+1][0]):
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if (swapped == False):
+            break
 def write_pdf():
 
     pdf = canvas.Canvas('example.pdf')
@@ -96,4 +107,7 @@ def find_book_place():
     # print(sorted(list_place))
     # list_placed = sorted(list_place)
 
-    write_pdf()
+    # write_pdf()
+    sort_list(list_place)
+    for i in list_place:
+        print(i)
