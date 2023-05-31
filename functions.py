@@ -39,9 +39,9 @@ def sort_list(arr):
 
 
 
-def find_book_place():
+def find_book_place(file_name):
     index = 0
-    file_path = 'order2.pdf'
+    file_path = file_name
     pages = tabula.read_pdf(file_path, pages='all', encoding="utf8")
     for page in pages:
         if index == 0:
