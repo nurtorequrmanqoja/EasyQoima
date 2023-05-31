@@ -24,7 +24,7 @@ def connect_db(table):
     return rows
 
 def save_book_place(table, id_book, name_book, amount, pack_divided_amout):
-    list_place.append([table, name_book[0:40], str(amount) + ' шт', pack_divided_amout[0:13], id_book])
+    list_place.append([table, name_book, str(amount) + ' шт', pack_divided_amout[0:13], id_book])
 
 def sort_list(arr):
     n = len(arr)
